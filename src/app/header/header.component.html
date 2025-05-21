@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header header-page">
   <div class="header-fixed">
     <nav class="navbar navbar-expand-lg header-nav scroll-sticky">
       <div class="container">
@@ -11,7 +11,7 @@
 </span>
           </a>
           <a href="index.html" class="navbar-brand logo">
-            <img src="assets/img/logo15.png" class="img-fluid" alt="Logo">
+            <img src="assets/img/logo.svg" class="img-fluid" alt="Logo">
           </a>
         </div>
         <div class="main-menu-wrapper">
@@ -25,21 +25,22 @@
           </div>
           <ul class="main-nav">
             <li class="has-submenu active">
-              <a class routerLink="/acceuil"> acceuil </a>
-
-            </li>
-            <li class="has-submenu active">
-              <a class href>produits <i class="fas fa-chevron-down"></i></a>
-              <ul class="submenu">
-                <li class="active"><a routerLink="/acceuil/produits">afficher produits</a></li>
-
+              <a >produits<i class="fas fa-chevron-down"></i></a>
+              <ul class="submenu first-submenu">
+                <li class="has-submenu ">
+                  <a routerLink="/acceuil/ajoutproduit">Ajouter produits</a>
+                </li>
+                <li  class="has-submenu">
+                  <a  routerLink="/acceuil/produits">Afficher produits</a>
+                </li>
               </ul>
             </li>
-            <li class="has-submenu active">
-              <a class routerLink="/acceuil/users">utilisateurs</a>
-
+            <li class="has-submenu">
+              <a routerLink="/acceuil/users">users<i class="fas fa-chevron-down"></i></a>
             </li>
-
+            <li class="has-submenu">
+              <a routerLink="/acceuil/products">products<i class="fas fa-chevron-down"></i></a>
+            </li>
             <li class="login-link">
               <a routerLink="/login">Login / Signup</a>
             </li>
@@ -50,7 +51,7 @@
             <a class="nav-link header-sign" routerLink="/login">Signin</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link header-login" href="register.html">Signup</a>
+            <a class="nav-link header-login" routerLink="/login">Signup</a>
           </li>
         </ul>
       </div>

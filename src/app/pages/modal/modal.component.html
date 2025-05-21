@@ -1,0 +1,42 @@
+<button class="btn btn-primary">add</button>&nbsp;
+<button class="btn btn-danger" (click)="confirmDelete()">delete</button>
+<div class="modal fade" id="deleteModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class=" modal-header">
+        <h5 class="modal-title"> Delete confirmation</h5>
+      </div>
+      <div class="modal-body">
+        <p>Are your sure you want to delete this item ??!!</p>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" (click)="closeDelete()">No</button>
+        <button class="btn btn-danger" (click)="deleteItem()" >Yes</button>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<table class="table table-dark">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Quantity</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of items">
+    <td>{{item.id}}</td>
+    <td>{{item.name}}</td>
+    <td>{{item.quantity}}</td>
+    <td>{{item.available ? 'Available' : 'Not Available'}}</td>
+    <td> <button (click)="itemClick(item)" > Click me </button></td>
+  </tr>
+  </tbody>
+</table>

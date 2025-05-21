@@ -1,0 +1,60 @@
+
+<header>
+  <h1> Produit</h1>
+  <nav>
+    <a href="#">Acceuil</a> / <a href="#">Produits</a>
+  </nav>
+  <br>
+</header>
+<br>
+<div >
+
+  <br><br><br><br><br><br><br>
+<div class="input-block select-form mb-1">
+  <select class="form-select select"  [(ngModel)]="selectetat" (change)="filterproducts()">
+    <option  value="ALL">All</option>
+    <option   value="1">gérer</option>
+    <option  value="0">en attente</option>
+  </select>
+</div>
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="row">
+          <div class="col-md-4 col-sm-12"  *ngFor="let u of paginatedReclamations">
+
+            <div class="blog grid-modern" >
+              <div class="blog-image">
+<img class="img-fluid responsive-image" [src]="'http://localhost:8082/image/'+u.picture" alt >
+
+              </div>
+              <div class="blog-modern-box">
+                <h3 class="blog-title">{{u.libelle}}</h3>
+                <div class="blog-info clearfix mb-0">
+                  <div class="post-left">
+                    <ul>
+                      <li><img class="img-fluid" src="/assets/img/icon/icon-22.svg" alt>Créer a :{{u.creationDate | date:'yyyy-MM-dd HH'}}</li>
+                      <li><img class="img-fluid" src="/assets/img/icon/icon-24.svg" alt>marque:{{u.marque}}</li>
+                    </ul>
+                  </div>
+                </div>
+                <button mat-raised-button color="warn"   (click)="OndeleteReclamation(u.idProduit)"  >Supprimer</button>
+
+                <button mat-raised-button color="primary"  >Modifier</button>
+              </div></div></div>
+        </div></div></div>
+
+
+
+    <hr> <!-- Horizontal line -->
+  </div>
+<mat-paginator
+[length]="filtredproduits.length"
+[pageSize]="3"
+[pageSizeOptions]="[3,6,9,12]"
+(page)="handlePageEvent($event)"
+>
+
+</mat-paginator>
+</div>
