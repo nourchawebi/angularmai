@@ -17,6 +17,16 @@
     <option  value="0">en attente</option>
   </select>
 </div>
+  <div class="card search-widget blog-search blog-widget">
+    <div class="card-body">
+      <form  (submit)="searchProduits()" class="search-form">
+        <div class="input-group">
+          <input type="text"  name="keyword" [(ngModel)]="searchKeyword" placeholder="Search..." class="form-control">
+          <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+        </div>
+      </form>
+    </div>
+  </div>
   <div class="container">
 
     <div class="row">
@@ -26,8 +36,9 @@
 
             <div class="blog grid-modern" >
               <div class="blog-image">
+                <a  [routerLink]="['/acceuil/produit',u.idProduit]">
 <img class="img-fluid responsive-image" [src]="'http://localhost:8082/image/'+u.picture" alt >
-
+                </a>
               </div>
               <div class="blog-modern-box">
                 <h3 class="blog-title">{{u.libelle}}</h3>
@@ -41,7 +52,7 @@
                 </div>
                 <button mat-raised-button color="warn"   (click)="OndeleteReclamation(u.idProduit)"  >Supprimer</button>
 
-                <button mat-raised-button color="primary"  >Modifier</button>
+                <button mat-raised-button color="primary" (click)="openDialog(u)"  >Modifier</button>
               </div></div></div>
         </div></div></div>
 

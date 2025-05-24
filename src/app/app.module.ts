@@ -29,6 +29,10 @@ import {MatTableModule} from "@angular/material/table";
 import {MatCardModule} from "@angular/material/card";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import { ModalComponent } from './pages/modal/modal.component';
+import { DetailsproduitsComponent } from './pages/detailsproduits/detailsproduits.component';
+import { ModifierproduitComponent } from './pages/modifierproduit/modifierproduit.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,11 @@ import { ModalComponent } from './pages/modal/modal.component';
     ProduitsComponent,
     LoginComponent,
     AjoutproduitComponent,
-    ModalComponent
+    ModalComponent,
+    DetailsproduitsComponent,
+    ModifierproduitComponent,
+    AdminComponent,
+    UnauthorizedComponent
   ],
   imports: [
     AppRoutingModule,

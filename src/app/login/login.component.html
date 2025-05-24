@@ -68,31 +68,69 @@
               </div>
             </div>
             <h1>Sign into Your Account</h1>
-            <form action="instructor-dashboard.html">
+            <form [formGroup]="authForm">
+
               <div class="input-block">
-                <label class="form-control-label">Email</label>
-                <input type="email" class="form-control" placeholder="Enter your email address">
+                <mat-form-field class="custom-input-width">
+                  <mat-label>Enter Email/Identifiant</mat-label>
+                  <input type="email" matInput   formControlName="username"
+                         placeholder="Ex. pat@example.com">
+                  <mat-hint>Errors appear instantly!</mat-hint>
+
+                  <mat-error *ngIf="authForm.controls['username'].hasError('username') && !authForm.controls['username'].hasError('required')">
+                    Please enter a valid email address
+                  </mat-error>
+
+                  <mat-error *ngIf="authForm.controls['username'].hasError('required')">
+                    Email is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+
               </div>
               <div class="input-block">
-                <label class="form-control-label">Password</label>
-                <div class="pass-group">
-                  <input type="password" class="form-control pass-input" placeholder="Enter your password">
-                  <span class="feather-eye toggle-password"></span>
-                </div>
+                <mat-form-field class="custom-input-width">
+                  <mat-label>Password</mat-label>
+                  <input type="password" matInput  formControlName="password"
+                         placeholder="enter your password">
+                  <mat-hint>Errors appear instantly!</mat-hint>
+
+
+
+                  <mat-error *ngIf="authForm.controls['password'].hasError('required')">
+                    password is <strong>required</strong>
+                  </mat-error>
+
+
+
+
+
+                </mat-form-field>
+
               </div>
+              <button mat-button type="submit" (click)="authenticate()"
+                      [disabled]=" authForm.invalid">Sign in </button>
               <div class="forgot">
-                <span><a class="forgot-link" href="forgot-password.html">Forgot Password ?</a></span>
+     <span>
+       <a   class="forgot-link"    >Forgot Password ?</a>
+   </span>
               </div>
-              <div class="remember-me">
-                <label class="custom_check mr-2 mb-0 d-inline-flex remember-me"> Remember me
-                  <input type="checkbox" name="radio">
-                  <span class="checkmark"></span>
-                </label>
+
+
+
+              <div class="alert alert-primary" role="alert" *ngIf="message">
+                <div class="success-message">{{ message }}</div>
               </div>
-              <div class="d-grid">
-                <button class="btn btn-primary btn-start" type="submit">Sign In</button>
+
+              <div class="alert alert-danger" role="alert" *ngIf="error">
+                <div class="error-message">{{ error }}</div>
+              </div>
+
+              <div class="google-bg text-center">
+
+                <p class="mb-0">you don't have an account? <a routerLink="/register">Sign up</a></p>
               </div>
             </form>
+
           </div>
         </div>
         <div class="google-bg text-center">
